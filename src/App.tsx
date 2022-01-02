@@ -62,9 +62,9 @@ const App: React.FC = () => {
         <Route path="/faq" element={<Faq />}/>
         <Route path="/shop" element={<Shop addItemToCart = {addItemToCart}/>}/>
         <Route path="/shop/:category" element={<Shop addItemToCart = {addItemToCart}/>}/>
-      </Routes>   
-      <ShoppingCart items={itemsInCart} seen={shoppingCartSeen} toggleCart={toggleCart} addItemToCart={addItemToCart} removeItem={removeItem}/>
+      </Routes>      
       <Footer />
+      <ShoppingCart items={itemsInCart} seen={shoppingCartSeen} toggleCart={toggleCart} addItemToCart={addItemToCart} removeItem={removeItem}/>
     </Router>
   );
 };
