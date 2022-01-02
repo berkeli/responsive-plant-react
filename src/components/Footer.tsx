@@ -61,8 +61,8 @@ const Footer = () => {
         ></iframe>
       </div>
       <p className="footer-text">
-        © 2023 by Prickles & Co. Proudly created with
-        <a href="https://wix.com" target="_blank">Wix.com</a>
+        © 2023 Created by Berkeli H for educational purposes, inspired by 
+        <a href="https://www.wix.com/website-template/view/html/1995" target="_blank"> Wix.com template</a>
       </p>
     </footer>
   );

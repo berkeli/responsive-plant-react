@@ -1,4 +1,4 @@
-import { Product, Category } from './types';
+import { Product, Category, Faq } from './types';
 
 const shortDesc = 'I\'m a product description. I\'m a great place to add more details about your product such as sizing, material, care instructions and cleaning instructions.';
 const longDesc = 'I\'m a product detail. I\'m a great place to add more information about your product such as sizing, material, care and cleaning instructions. This is also a great space to write what makes this product special and how your customers can benefit from this item.';
@@ -28,4 +28,11 @@ export const categories: Category[] = [
   { name: 'Cacti', thumbnail: 'cacti.png', heroTitle: 'HAVE YOURSELF A CACTUS', heroDesc },
   { name: 'Plants', thumbnail: 'plants.png', heroTitle: 'THE WORLD NEEDS MORE PLANTS', heroDesc },
   { name: 'Succulents', thumbnail: 'succulents.png', heroTitle: 'WE LOVE SUCCULENTS', heroDesc },
+];
+
+export const faq:Faq[] = [
+  { q: 'How to add a new question?', a: 'To add a new question go to app settings and press "Manage Questions" button.', toggle:false },
+  { q: 'Can I instert pictures in my FAQ?', toggle:false, a: 'Yes! To add a picture follow these simple steps: \n Enter App Settings \n Click the "Manage Questions" button \n Click on the question you would like to attach a picture to \n  When editing your answer, click on the picture icon and then add an image from your library' },
+  { q: 'Can I instert a video in my FAQ?', toggle:false, a: 'To add a new question go to app settings and press "Manage Questions" button.' },
+  { q: 'How do I edit or remove the "FAQ title"?', toggle:false, a: 'The FAQ title can be adjusted in the settings tab of the App Settings. You can also remove the title by unchecking its checkbox in the settings tab.' },
 ];

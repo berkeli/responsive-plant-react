@@ -16,3 +16,9 @@ export type Category = {
   heroTitle: string,
   heroDesc: string,
 };
+
+export type Faq = {
+  q: string,
+  a: string,
+  toggle: boolean,
+};

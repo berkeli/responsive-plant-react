@@ -53,7 +53,7 @@ const ShoppingCart:React.FC<IShoppingCart> = ({ items, seen, toggleCart, addItem
                 <Link to="#" className='button'>Checkout</Link>
                 <div className='item-container'>
                     {itemsToDisplay.map((e)=>
-                    <div className="single-item">
+                    <div className="single-item" key={e.id}>
                         <img src={require(`../img/products/${e.image}`)}/>
                         <div className='product-details'>
                             <h6>{e.name}</h6>

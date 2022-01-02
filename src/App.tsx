@@ -6,11 +6,12 @@ import './css/styles.scss';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Shop from './components/Shop';
 import ShoppingCart from './components/ShoppingCart';
+import Faq from './components/Faq';
 
 const ScrollToTop:React.FC = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }, [pathname]);
   return null;
 };
@@ -23,7 +24,7 @@ interface ItemCart {
 const App: React.FC = () => {
   const [itemsInCart, setItemsInCart] = useState<Array<ItemCart>>(JSON.parse(localStorage.getItem('itemsInCart') || '[]'));
   const [itemCount, setItemCount] = useState<number>(itemsInCart.reduce((a:number, currrentItem: ItemCart)=> a + currrentItem.count, 0));
-  const [shoppingCartSeen, setShoppingCartSeen] = useState<boolean>(true);
+  const [shoppingCartSeen, setShoppingCartSeen] = useState<boolean>(false);
 
   const removeItem = (i:number):void => {
     const newItems = itemsInCart.filter(e => e.itemId !== i); 
@@ -58,6 +59,7 @@ const App: React.FC = () => {
       <Header cartItemCount = {itemCount} toggleCart = {toggleCart}/>
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/faq" element={<Faq />}/>
         <Route path="/shop" element={<Shop addItemToCart = {addItemToCart}/>}/>
         <Route path="/shop/:category" element={<Shop addItemToCart = {addItemToCart}/>}/>
       </Routes>   

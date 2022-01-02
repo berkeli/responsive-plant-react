@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { HashLink as Link } from 'react-router-hash-link';
+import { useLocation } from 'react-router-dom';
 
 interface Props {
   cartItemCount: number;
@@ -29,7 +30,10 @@ const Header: React.FC<Props> = ({ cartItemCount, toggleCart }) => {
     }, 3000);
     return () => clearInterval(changeText);    
   });
-  
+
+  const getLocationHash = useLocation().hash;
+  const getLocation = useLocation().pathname;
+
   const scrollWithOffset = (el:HTMLElement, yOffset:number) => {
     console.log(el);
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
@@ -82,14 +86,14 @@ const Header: React.FC<Props> = ({ cartItemCount, toggleCart }) => {
         </div>
       </div>
       <div className="navigation-row">
-        <Link to="../" smooth className="logo" scroll={(el) => scrollWithOffset(el, -150)}>
+        <Link to="/" smooth className="logo" scroll={(el) => scrollWithOffset(el, -150)}>
           <h2>PRICKLES & CO.</h2>
         </Link>
         <a href="#" className="hamburger" onClick={() => setMobileMenu(!mobileMenu)}>
           <FontAwesomeIcon icon={mobileMenu ? faTimes : faBars}/>
         </a>
         <ul className={ mobileMenu ? 'navigation open' : 'navigation'} id="navigation">
-          {navLinks.map((e, i:number)=> <li key={i}><Link smooth to={e.href} scroll={(el) => scrollWithOffset(el, e.yOffset)}>{e.title}</Link></li> )}
+          {navLinks.map((e, i:number)=> <li key={i}><Link smooth to={e.href} scroll={(el) => scrollWithOffset(el, e.yOffset)} className={ '/' + getLocationHash === e.href || getLocation === e.href  ? 'active' : ''}>{e.title}</Link></li> )}
         </ul>
         <h3 className="dynamic-text">
           {promoText}
