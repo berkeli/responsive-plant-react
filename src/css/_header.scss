@@ -50,8 +50,9 @@ header svg {
   margin-left: 0.3rem;
 }
 
-.corner-links a {
+.corner-links a, .corner-links button {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .login {
@@ -62,7 +63,7 @@ header svg {
 .item-counter {
   color: $white;
   position: relative;
-  left: 21px;
+  left: 20px;
   top: -8px;
   font-size: 0.8rem;
 }

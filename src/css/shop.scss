@@ -1,9 +1,19 @@
 @import 'variables';
 
-.hero {
+  .hero {
     min-height: 100vh;
     background: url("../img/shop-background.png");
     justify-content: center;
+    background-attachment: fixed;
+  }
+  .hero.plants {
+    background: url("../img/shop-background-plants.png");
+  }
+  .hero.cacti {
+    background: url("../img/shop-background-cacti.png");
+  }
+  .hero.succulents {
+    background: url("../img/shop-background-succulents.png");
   }
   .hero h1 {
     font-size: 6rem;
@@ -28,9 +38,16 @@
   }
   .product {
     width: 100%;
-    text-decoration: none;
+    
     display: flex;
     justify-content: center;
+  }
+  .product a {
+    text-decoration: none;
+    color: $red-brown;
+  }
+  .product:hover  .product a {
+    color: $black;
   }
   .product-img,
   .alternative {
@@ -73,6 +90,12 @@
   }
   .new::after {
     content: "New Arrival";
+  }
+  .product > div {
+    text-align: center;
+  }
+  .product > div .button {
+    margin-top:0.5rem;
   }
   @media screen and (min-width: 900px) {
     .hero {

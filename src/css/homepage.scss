@@ -1,7 +1,8 @@
 @import 'variables';
 
-.hero {
+.hero.home {
     background: url("../img/hero-background.png");
+    background-attachment: fixed;
   }
   
   .hero div {

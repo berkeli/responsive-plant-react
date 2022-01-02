@@ -5,10 +5,14 @@ export type Product = {
   new: boolean, 
   bestSeller: boolean, 
   images: string[], 
-  cat: number 
+  cat: number,
+  shortDesc: string,
+  longDesc: string, 
 };
   
 export type Category = {
   name: string,
-  image: string 
+  thumbnail: string,
+  heroTitle: string,
+  heroDesc: string,
 };

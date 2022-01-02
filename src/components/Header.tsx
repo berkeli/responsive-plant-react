@@ -3,17 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { HashLink as Link } from 'react-router-hash-link';
 
-
 interface Props {
   cartItemCount: number;
+  toggleCart: () => void
 }
 
-const Header: React.FC<Props> = ({ cartItemCount }) => {
+const Header: React.FC<Props> = ({ cartItemCount, toggleCart }) => {
   const navLinks = [
-    { href: './shop', title: 'Shop', yOffset: 0 },
-    { href: './#about', title: 'About', yOffset: -150 },
-    { href: './faq', title: 'FAQ', yOffset: 0 },
-    { href: './#contact', title: 'Contact', yOffset: -135 },
+    { href: '/shop', title: 'Shop', yOffset: -1000 },
+    { href: '/#about', title: 'About', yOffset: -150 },
+    { href: '/faq', title: 'FAQ', yOffset: 0 },
+    { href: '/#contact', title: 'Contact', yOffset: -135 },
   ];
   const [promoText, setPromoText] = useState<string>('Call Us Now! 123-456-7890');
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
@@ -31,7 +31,7 @@ const Header: React.FC<Props> = ({ cartItemCount }) => {
   });
   
   const scrollWithOffset = (el:HTMLElement, yOffset:number) => {
-    console.log(yOffset);
+    console.log(el);
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
   };
@@ -65,7 +65,7 @@ const Header: React.FC<Props> = ({ cartItemCount }) => {
             </svg>
             <span>Login</span>
           </a>
-          <a href="#">
+          <button onClick={toggleCart}>
             <span className="item-counter">{cartItemCount}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -78,18 +78,18 @@ const Header: React.FC<Props> = ({ cartItemCount }) => {
               <path d="M99.8 28.4c0-1.2-0.9-2-2.1-2h-15c0 3.2 0 7.6 0 8.2 0 1.5-1.2 2.6-2.6 2.9 -1.5 0.3-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-0.9 0-4.7 0-8.2H40.1c0 3.2 0 7.3 0 8.2 0 1.5-1.2 2.9-2.6 2.9 -1.5 0-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-0.6 0-5 0-8.2h-15c-1.2 0-2 0.9-2 2L8.3 124c0 1.2 0.9 2.1 2.1 2.1h96.3c1.2 0 2.1-0.9 2.1-2.1L99.8 28.4z" />
               <path d="M59.1 5.9c-2.9 0-2 0-2.9 0 -2 0-4.4 0.6-6.4 1.5 -3.2 1.5-5.9 4.1-7.6 7.3 -0.9 1.8-1.5 3.5-1.8 5.6 0 0.9-0.3 1.5-0.3 2.3 0 1.2 0 2.1 0 3.2 0 1.5-1.2 2.9-2.6 2.9 -1.5 0-2.9-0.9-3.2-2.3 0-0.3 0-0.3 0-0.6 0-1.2 0-2.3 0-3.5 0-3.2 0.9-6.4 2-9.4 1.2-2.3 2.6-4.7 4.7-6.4 3.2-2.9 6.7-5 11.1-5.9C53.5 0.3 55 0 56.7 0c1.5 0 2.9 0 4.4 0 2.9 0 5.6 0.6 7.9 1.8 2.6 1.2 5 2.6 6.7 4.4 3.2 3.2 5.3 6.7 6.4 11.1 0.3 1.5 0.6 3.2 0.6 4.7 0 1.2 0 2.3 0 3.2 0 1.5-1.2 2.6-2.6 2.9s-2.9-0.9-3.2-2.3c0-0.3 0-0.3 0-0.6 0-1.2 0-2.6 0-3.8 0-2.3-0.6-4.4-1.8-6.4 -1.5-3.2-4.1-5.9-7.3-7.3 -1.8-0.9-3.5-1.8-5.9-1.8C61.1 5.9 59.1 5.9 59.1 5.9L59.1 5.9z" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
       <div className="navigation-row">
-        <Link to="./#" smooth className="logo" scroll={(el) => scrollWithOffset(el, -150)}>
+        <Link to="../" smooth className="logo" scroll={(el) => scrollWithOffset(el, -150)}>
           <h2>PRICKLES & CO.</h2>
         </Link>
         <a href="#" className="hamburger" onClick={() => setMobileMenu(!mobileMenu)}>
           <FontAwesomeIcon icon={mobileMenu ? faTimes : faBars}/>
         </a>
         <ul className={ mobileMenu ? 'navigation open' : 'navigation'} id="navigation">
-          {navLinks.map(e=> <li><Link smooth to={e.href} scroll={(el) => scrollWithOffset(el, e.yOffset)}>{e.title}</Link></li> )}
+          {navLinks.map((e, i:number)=> <li key={i}><Link smooth to={e.href} scroll={(el) => scrollWithOffset(el, e.yOffset)}>{e.title}</Link></li> )}
         </ul>
         <h3 className="dynamic-text">
           {promoText}

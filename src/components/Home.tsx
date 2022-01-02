@@ -2,10 +2,11 @@ import React, { useRef } from 'react';
 import '../css/homepage.scss';
 import { categories } from '../data';
 import ContactUs from './ContactUs';
+import { Link } from 'react-router-dom';
 
 const HomeHero: React.FC = () => {
   return (
-        <section className="hero">
+        <section className="hero home">
         <div>
           <p>ESTB</p>
           <svg
@@ -38,7 +39,7 @@ const HomeHero: React.FC = () => {
           <br />
           Indoors
         </h3>
-        <a className="button" href="./shop">Shop Now</a>
+        <Link className="button" to="/shop">Shop Now</Link>
       </section> 
   );
 };
@@ -46,8 +47,8 @@ const HomeHero: React.FC = () => {
 const HomeCategories: React.FC = () => {
   return (
         <section className="featured">
-            {categories.map(e=><div className="category">
-                <img src={require(`../img/${e.image}`)} alt={`Shop ${e.name}`} />
+            {categories.map(e=><div className="category" key={e.name}>
+                <img src={require(`../img/${e.thumbnail}`)} alt={`Shop ${e.name}`} />
                 <a href={`./shop/${e.name}`} className="category-name"><h4>{e.name}</h4></a>
                 <span className="underline">_</span>
                 <a className="button" href={`./shop/${e.name}`}>Shop Collection</a>
@@ -93,7 +94,7 @@ const HomeAbout: React.FC = () => {
         </div>
         <div className="special-offer">
           <h2>BUY ONLINE NOW & GET 10% OFF !</h2>
-          <a className="button" href="./shop">Shop Now</a>
+          <Link className="button" to="./shop">Shop Now</Link>
         </div>
       </section>
   );
