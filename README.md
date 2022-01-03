@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Responsive e-commerce website built using React
+
+## Technologies used: 
+1. TypeScript 
+2. SASS
+
+## Features:
+1. Website is fully responsive
+2. Working shopping cart that utilizes state and localStorage
+3. React router
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
