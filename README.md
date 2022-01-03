@@ -11,6 +11,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About: 
+The project has been created to learn more abuout react and TypeScript, this is a replica of a WIX.com template (https://www.wix.com/website-template/view/html/1995). It is not to be used for commercial purposes. 
+[Link to the live demo of this project](https://react-plants.netlify.app/). 
+
 ## Available Scripts
 
 In the project directory, you can run:
